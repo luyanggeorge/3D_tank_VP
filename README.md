@@ -1,5 +1,5 @@
 ## About
-Revisit the 3D wave tank test cases through the "VP approach" where the weak formulations can be generated automatically given the time-discretised VP.
+Revisit the [3D wave tank test cases (TCs)](https://github.com/EAGRE-water-wave-impact-modelling/3D-wave-tank-JCP2022) through the "VP approach" where the weak formulations can be generated automatically given the time-discretised VP.
 
 ## Instructions
 - Main file: `3D_tank_VP.py`
