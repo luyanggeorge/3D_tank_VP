@@ -28,7 +28,7 @@ Revisit the [3D wave tank test cases (TCs)](https://github.com/EAGRE-water-wave-
     - TC1: `energy.csv`, `.npy` binary files with field data, `readme.txt`
     - TC4: `energy.csv`, `probes.csv` with numerical measurements, `readme.txt`
 - :white_check_mark: $\hat{\phi}(z)$ can be switched between 1 and high order Lagrange polynomial based on GLL points.
-- :white_check_mark: Interpolation of the experimental data by using the `numpy` method `interp` instead of the `scipy` method `interp1d`.
+- :white_check_mark: Interpolation of the experimental data by using the *NumPy* method `interp` instead of the *SciPy* method [`interp1d`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html) as the latter might be removed in future *SciPy* versions.
 - TO DO
     - Implement the above changes to `3D_tank.py`.
     
