@@ -11,7 +11,7 @@ Revisit the [3D wave tank test cases (TCs)](https://github.com/EAGRE-water-wave-
 
 | Test Case    | New Approach | Old Approach (to be updated) |
 | :---:        |    :----:    |     :----: |
-| TC4      |   **`3D_tank_VP.py`** <br/>`settings_TCn.py`, `savings.py`<br/> folder `202002`  |  **`3D_tank.py`** <br/>`settings_TCn.py`, `savings.py`<br/> folder `202002`  |
+| TC4      |   **`3D_tank_VP.py`** <br/>`settings_TC4.py`, `savings.py`<br/> folder `202002`  |  **`3D_tank.py`** <br/>`settings_TC4.py`, `savings.py`<br/> folder `202002`  |
 
 ## Post-Processing Codes
 - TC1:
