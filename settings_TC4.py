@@ -17,7 +17,7 @@ def test_case():
     #"2D": R(t) and b(x); "3D": R(y,t) and/or b(x,y)
     # if input = measurements, the dim must be 2D.
     #______ Path and name of the saved files ______#
-    save_path = 'data_VP/'+scheme+'/TC4_2D(one-ele,phiGLL)_test/'
+    save_path = 'data_VP/'+scheme+'/TC4_2D(one-ele,phiGLL)/'
     # ----yl added. whether the seabed is flat or not
     bottom = 'flat' 
     # 'flat':b(x,y)=0; 'nonuniform':b(x,y)!=0
