@@ -22,8 +22,8 @@ To compare the results with the old ones, some changes are also made to the orig
 - In `3D_tank_VP.py`, $\hat{\phi}(z)$ can be switched between 1 and high order Lagrange polynomial based on GLL points via the flag `hatphi_one`; while the flag `one_ver_ele` decides whether there is only one element or multiple elements in the $z$-direction.
 
 ## Log
-| Test Case | New Approach | Old Approach (SV) |
+| Test Case | New Approach | Old Approach (SV-GLL) |
 | :---:     |    :----:    |   :----:     |
 | TC1       |**`3D_tank_VP.py`** <br/>`settings_TC1.py`, `savings.py` | **`3D_tank.py`** <br/>`settings_TC1.py`, `savings.py`<br/>`solvers_full.py`  |
-| TC3       |**`3D_tank_VP.py`** <br/>`settings_TC3.py`, `savings.py`<br/> :clock1: Δt=0.001s TBD; <br/>:white_check_mark: Δt=0.002s Done. 15h(16p-YL). 20230109 | **`3D_tank.py`** <br/>`settings_TC3.py`, `savings.py`<br/>`solvers_full.py`  |
-| TC4       |**`3D_tank_VP.py`** <br/>`settings_TC4.py`, `savings.py`<br/> folder `202002` <br/> :white_check_mark: Done. 28h(16p-YL). 20230108 |  **`3D_tank.py`** <br/>`settings_TC4.py`, `savings.py` <br/> `solvers_full.py` <br/> folder `202002` <br/> :clock1: TBD  |
+| TC3       |**`3D_tank_VP.py`** <br/>`settings_TC3.py`, `savings.py`<br/> :clock1: Δt=0.001s TBD (JC/YL); <br/>:white_check_mark: Δt=0.002s Done. 15h(16p-YL). 20230109 | **`3D_tank.py`** <br/>`settings_TC3.py`, `savings.py`<br/>`solvers_full.py` <br/> :construction: Δt=0.002s checking |
+| TC4       |**`3D_tank_VP.py`** <br/>`settings_TC4.py`, `savings.py`<br/> folder `202002` <br/> :white_check_mark: Done. 28h(16p-YL). 20230108 |  **`3D_tank.py`** <br/>`settings_TC4.py`, `savings.py` <br/> `solvers_full.py` <br/> folder `202002` <br/> :clock1: TBD (OB/YL)  |
