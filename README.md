@@ -14,9 +14,10 @@ To compare the results with the old ones, some changes are also made to the orig
     - Explicit weak formulations for SE and SV in `solvers_full.py`
 
 ## Developing Notes
-- Change the way by which the wavemaker-related functions update against time.
+- Changed the way by which the wavemaker-related functions update against time.
 - Output results into files during the time-stepping loop
     - TC1: `energy.csv`, a series of `.npy` binary files with field data, `readme.txt`
+    - TC3: `checkpoints.csv` containing energy, water depths at three vertices, and wavemaker-related data, `readme.txt`
     - TC4: `energy.csv`, `probes.csv` with numerical measurements, `readme.txt`
 - The above changes are also implemented into `3D_tank.py`. In addition, the Lagrange polynomial $\tilde{\varphi}_i(z)$ is now constructed based on GLL points.
 - In `3D_tank_VP.py`, $\hat{\phi}(z)$ can be switched between 1 and high order Lagrange polynomial based on GLL points via the flag `hatphi_one`; while the flag `one_ver_ele` decides whether there is only one element or multiple elements in the $z$-direction.
@@ -30,5 +31,5 @@ To compare the results with the old ones, some changes are also made to the orig
 | Test Case | New Approach | Old Approach (SV-GLL) |
 | :---:     |    :----:    |   :----:     |
 | TC1       |**`3D_tank_VP.py`** <br/>`settings_TC1.py`, `savings.py` | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC1.py`, `savings.py`  |
-| TC3       |**`3D_tank_VP.py`** <br/>`settings_TC3.py`, `savings.py`<br/> :computer: Δt=0.001s: Running on ARC4 (40p); <br/>:white_check_mark: Δt=0.002s Done. 15h(16p-YL). 20230109 | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC3.py`, `savings.py` <br/> :clock1: Δt=0.001s: submitted onto ARC4 <br/> :white_check_mark: Δt=0.002s: Done. 13h(16p-YL). 20230110 |
+| TC3       |**`3D_tank_VP.py`** <br/>`settings_TC3.py`, `savings.py`<br/> :computer: Δt=0.001s: Running on ARC4 (40p); <br/>:white_check_mark: Δt=0.002s Done. 15h(16p-YL). 20230109 | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC3.py`, `savings.py` <br/> :clock1: Δt=0.001s: submitted onto ARC4; <br/> :white_check_mark: Δt=0.002s: Done. 13h(16p-YL). 20230110 |
 | TC4       |**`3D_tank_VP.py`** <br/>`settings_TC4.py`, `savings.py`<br/> folder `202002` <br/> :white_check_mark: Done. 28h(16p-YL). 20230108 |  **`3D_tank.py`** + `solvers_full.py`<br/>`settings_TC4.py`, `savings.py` <br/> folder `202002` <br/> :clock1: TBD (OB/YL)  |
