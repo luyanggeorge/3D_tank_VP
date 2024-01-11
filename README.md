@@ -21,9 +21,14 @@ To compare the results with the old ones, some changes are also made to the orig
 - The above changes are also implemented into `3D_tank.py`. In addition, the Lagrange polynomial $\tilde{\varphi}_i(z)$ is now constructed based on GLL points.
 - In `3D_tank_VP.py`, $\hat{\phi}(z)$ can be switched between 1 and high order Lagrange polynomial based on GLL points via the flag `hatphi_one`; while the flag `one_ver_ele` decides whether there is only one element or multiple elements in the $z$-direction.
 
+## Simulation Instructions
+- Specify which test case you are going to perform by changing `case = 'TCx'`  at the start of the main file.
+- Specify the directory where the numerical results will be stored by changing the `save_path` in `settings_TCx.py`.
+- If you are going to carry out the simulations on an HPC, please ensure that you have requested an acceptable amount of time and memory in the job submission script. These can be determined by trial and error. It is useful to retrieve the data of a job run via the command `qacct -j JOBID` and check the maximum memory and time actually used from the rows `maxvmem` and `ru_wallclock`. You can then update your resource request lines in your job submission script to prevent the job being aborted in the future.
+
 ## Log
 | Test Case | New Approach | Old Approach (SV-GLL) |
 | :---:     |    :----:    |   :----:     |
 | TC1       |**`3D_tank_VP.py`** <br/>`settings_TC1.py`, `savings.py` | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC1.py`, `savings.py`  |
-| TC3       |**`3D_tank_VP.py`** <br/>`settings_TC3.py`, `savings.py`<br/> :clock1: Δt=0.001s TBD (JC/YL); <br/>:white_check_mark: Δt=0.002s Done. 15h(16p-YL). 20230109 | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC3.py`, `savings.py` <br/> :clock1: Δt=0.001s: job submitted to HPC <br/> :white_check_mark: Δt=0.002s: Done. 13h(16p-YL). 20230110 |
+| TC3       |**`3D_tank_VP.py`** <br/>`settings_TC3.py`, `savings.py`<br/> :computer: Δt=0.001s: Running on ARC4 (40p); <br/>:white_check_mark: Δt=0.002s Done. 15h(16p-YL). 20230109 | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC3.py`, `savings.py` <br/> :clock1: Δt=0.001s: submitted onto ARC4 <br/> :white_check_mark: Δt=0.002s: Done. 13h(16p-YL). 20230110 |
 | TC4       |**`3D_tank_VP.py`** <br/>`settings_TC4.py`, `savings.py`<br/> folder `202002` <br/> :white_check_mark: Done. 28h(16p-YL). 20230108 |  **`3D_tank.py`** + `solvers_full.py`<br/>`settings_TC4.py`, `savings.py` <br/> folder `202002` <br/> :clock1: TBD (OB/YL)  |
