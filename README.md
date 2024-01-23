@@ -32,5 +32,5 @@ To compare the results with the old ones, some changes are also made to the orig
 | Test Case | New Approach | Old Approach (SV-GLL) |
 | :---:     |    :----:    |   :----:     |
 | TC1       |**`3D_tank_VP.py`** <br/>`settings_TC1.py`, `savings.py` | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC1.py`, `savings.py`  |
-| TC3       |**`3D_tank_VP.py`** <br/>`settings_TC3.py`, `savings.py`<br/> :construction: Δt=0.001s: HPC; <br/>:construction: Δt=0.002s: HPC | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC3.py`, `savings.py` <br/> :construction: Δt=0.001s: HPC; <br/> :white_check_mark: Δt=0.002s: Done. 7h(16p-YL). |
+| TC3       |**`3D_tank_VP.py`** <br/>`settings_TC3.py`, `savings.py`<br/> :construction: Δt=0.001s: HPC (Job 6005065); <br/>:construction: Δt=0.002s: HPC (Job 6005067) | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC3.py`, `savings.py` <br/> :construction: Δt=0.001s: HPC; <br/> :white_check_mark: Δt=0.002s: Done. 7h(16p-YL). |
 | TC4       |**`3D_tank_VP.py`** <br/>`settings_TC4.py`, `savings.py`<br/> folder `202002` <br/> :white_check_mark: Done. 28h(16p-YL). 20240108 |  **`3D_tank.py`** + `solvers_full.py`<br/>`settings_TC4.py`, `savings.py` <br/> folder `202002` <br/> :white_check_mark: Done. 26h(16p-YL). 20240113  |
