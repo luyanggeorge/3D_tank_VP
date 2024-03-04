@@ -27,7 +27,8 @@ To compare the results with the old ones, some changes are also made to the orig
 1. Specify which test case you are going to run by changing `case = 'TCx'`  at the start of the main file (`3D_tank_VP.py` or `3D_tank.py`).
 1. Setting the parameters for a particular simulation in `settings.py`:
     1. Specify the directory where the numerical results will be stored by changing the `save_path` in `settings_TCx.py`.
-    1. Adjust the spatial resolution via `res_x`, `res_y` and `nz` in the function `domain`; change the temporal resolution via `dt` in the function `set_time`.
+    2. Adjust the spatial resolution via `res_x`, `res_y` and `nz` in the function `domain`; change the temporal resolution via `dt` in the function `set_time`.
+    3. For TC2, the sample points at which the evaluation of the *Firedrake* functions takes place can be specified through the arrays `x_coor` and `y-coor` in the main file `3D_tank_VP.py`.
 1. When a simulation finishes, check the output files in the directory you specified in step 1. The numerical results can be processed and visualised with the post-processing codes provided in the folder `post-processing`.
 
 **HPC Notes:**
