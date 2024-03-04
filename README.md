@@ -16,21 +16,28 @@ To compare the results with the old ones, some changes are also made to the orig
 ## Developing Notes
 - Changed the way by which the wavemaker-related functions update against time.
 - Output results into files during the time-stepping loop
-    - TC1: `energy.csv`, a series of `.npy` binary files with field data, `readme.txt`
+    - TC1: `energy.csv`, a series of `.npy` binary files containing 1D field data named after the time step, `readme.txt`
+    - TC2: A series of `.npy` binary files containing 2D field data named after the time step, `readme.txt`
     - TC3: `checkpoints.csv` containing energy, water depths at three vertices and wavemaker-related data, `readme.txt`
     - TC4: `energy.csv`, `probes.csv` with numerical measurements, `readme.txt`
 - The above changes are also implemented into `3D_tank.py`. In addition, the Lagrange polynomial $\tilde{\varphi}_i(z)$ is now constructed based on GLL points.
-- In `3D_tank_VP.py`, $\hat{\phi}(z)$ can be switched between 1 and high order Lagrange polynomial based on GLL points via the flag `hatphi_one`; while the flag `one_ver_ele` decides whether there is only one element or multiple elements in the $z$-direction.
+- In `3D_tank_VP.py`, $\hat{\phi}(z)$ can be switched between 1 and high order Lagrange polynomial based on GLL points via the flag `hatphi_one`; while the flag `one_ver_ele` decides whether there is only one element or multiple elements for the discretisation in the $z$-direction.
 
 ## Simulation Instructions
-- Specify which test case you are going to perform by changing `case = 'TCx'`  at the start of the main file.
-- Specify the directory where the numerical results will be stored by changing the `save_path` in `settings_TCx.py`.
+1. Specify which test case you are going to run by changing `case = 'TCx'`  at the start of the main file (`3D_tank_VP.py` or `3D_tank.py`).
+1. Setting the parameters for a particular simulation in `settings.py`:
+    1. Specify the directory where the numerical results will be stored by changing the `save_path` in `settings_TCx.py`.
+    1. Adjust the spatial resolution via `res_x`, `res_y` and `nz` in the function `domain`; change the temporal resolution via `dt` in the function `set_time`.
+1. When a simulation finishes, check the output files in the directory you specified in step 1. The numerical results can be processed and visualised with the post-processing codes provided in the folder `post-processing`.
+
+**HPC Notes:**
 - If you are going to carry out the simulations on an HPC, please ensure that you have requested an acceptable amount of time and memory in the job submission script. These can be determined by trial and error. It is useful to retrieve the data of a job run via the command `qacct -j JOBID` and check the maximum memory and time actually used from the rows `maxvmem` and `ru_wallclock`. You can then update your resource request lines in your job submission script to prevent the job from being aborted in the future.
 - Two example job submission scripts, one for using the processes on a single node (`MPI_SingleNode.sh`) and the other for running anywhere (`MPI_Anywhere.sh`), are provided here. The cache will be using different storage places but not the home directory. For single-node jobs, extra local disk space needs to be explicitly requested for the cache.
 
-## Log
+## Records of TCs
 | Test Case | New Approach | Old Approach (SV-GLL) |
 | :---:     |    :----:    |   :----:     |
 | TC1       |**`3D_tank_VP.py`** <br/>`settings_TC1.py`, `savings.py` | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC1.py`, `savings.py`  |
+| TC2       |**`3D_tank_VP.py`** <br/>`settings_TC2.py`, `savings.py` | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC2.py`, `savings.py`  |
 | TC3       |**`3D_tank_VP.py`** <br/>`settings_TC3.py`, `savings.py`<br/> :white_check_mark: Δt=0.001s: Done. 22h(16p-YL); <br/> :white_check_mark: Δt=0.002s: Done. 11h(16p-YL)/24h(32p-HPC) | **`3D_tank.py`** + `solvers_full.py` <br/>`settings_TC3.py`, `savings.py` <br/> :white_check_mark: Δt=0.001s: Done. 15h(16p-YL); <br/> :white_check_mark: Δt=0.002s: Done. 7h(16p-YL). |
 | TC4       |**`3D_tank_VP.py`** <br/>`settings_TC4.py`, `savings.py`<br/> folder `202002` <br/> :white_check_mark: Done. 28h(16p-YL). 20240108 |  **`3D_tank.py`** + `solvers_full.py`<br/>`settings_TC4.py`, `savings.py` <br/> folder `202002` <br/> :white_check_mark: Done. 26h(16p-YL). 20240113  |
