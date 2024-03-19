@@ -14,14 +14,15 @@ To compare the results with the old ones, some changes are also made to the orig
     - Explicit weak formulations for SE and SV in `solvers_full.py`
 
 ## Developing Notes
-- Changed the way by which the wavemaker-related functions update against time.
-- Output results into files during the time-stepping loop
+- In `settings.py`, changed how the wavemaker-related functions update against time.
+- In `3D_tank.py`, which uses the 'old approach', the Lagrange polynomial $\tilde{\varphi}_i(z)$ is now constructed based on GLL points.
+- In `3D_tank_VP.py`, $\hat{\phi}(z)$ can be switched between 1 and high order Lagrange polynomial based on GLL points via the flag `hatphi_one`; while the flag `one_ver_ele` decides whether there is only one element or multiple elements for the discretisation in the $z$-direction.
+- In `3D_tank_VP.py`, the field data is now evaluated at a matrix of points via `VertexOnlyMesh`, and it's parallel safe.
+- Saving results into files during the time-stepping loop
     - TC1: `energy.csv`, a series of `.npy` binary files containing 1D field data named after the time step, `readme.txt`
     - TC2: A series of `.npy` binary files containing 2D field data named after the time step, `readme.txt`
     - TC3: `checkpoints.csv` containing energy, water depths at three vertices and wavemaker-related data, `readme.txt`
     - TC4: `energy.csv`, `probes.csv` with numerical measurements, `readme.txt`
-- The above changes are also implemented into `3D_tank.py`. In addition, the Lagrange polynomial $\tilde{\varphi}_i(z)$ is now constructed based on GLL points.
-- In `3D_tank_VP.py`, $\hat{\phi}(z)$ can be switched between 1 and high order Lagrange polynomial based on GLL points via the flag `hatphi_one`; while the flag `one_ver_ele` decides whether there is only one element or multiple elements for the discretisation in the $z$-direction.
 
 ## Simulation Instructions
 1. Specify which test case you are going to run by changing `case = 'TCx'`  at the start of the main file (`3D_tank_VP.py` or `3D_tank.py`).
