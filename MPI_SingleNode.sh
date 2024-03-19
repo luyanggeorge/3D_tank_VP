@@ -1,8 +1,9 @@
 #$ -cwd -V
 #$ -l h_rt=40:00:00
 #$ -l node_type=40core-768G
-#$ -pe smp 32
-#$ -l h_vmem=12G
+#$ -pe smp 40
+#$ -l h_vmem=16G
+#$ -l disk=10G
 #$ -m be
 
 module swap openmpi mvapich2
